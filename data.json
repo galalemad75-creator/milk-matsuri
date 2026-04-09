@@ -4,16 +4,7 @@
       "id": 1,
       "name": "Festival Bon Odori Style",
       "icon": "🎎",
-      "songs": [
-        {
-          "id": 999,
-          "title": "Test Song",
-          "audio": "https://test.com/test.mp3",
-          "image": "",
-          "created": "2026-04-10T00:00:00Z",
-          "plays": 0
-        }
-      ]
+      "songs": []
     },
     {
       "id": 2,
@@ -232,6 +223,5 @@
   "admin": {
     "email": "galalemad75@gmail.com",
     "password": "MilkMatsuri2026!"
-  },
-  "_persist_test": "cross_browser_ok"
+  }
 }
