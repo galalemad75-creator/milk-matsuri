@@ -80,6 +80,7 @@ function renderChapters() {
     <div class="card" onclick="openChapter(${c.id})">
       <div class="num">${c.id}</div>
       <div class="name">${c.icon} ${c.name}</div>
+      ${c.nameJp ? `<div class="name-jp" style="font-size:0.8rem;color:var(--text-muted);margin-top:2px">${c.nameJp}</div>` : ''}
       <div class="count">${(c.songs || []).length} song${(c.songs || []).length !== 1 ? 's' : ''}</div>
     </div>
   `).join('');
@@ -120,7 +121,7 @@ function openChapter(id) {
     document.body.insertBefore(sv, document.querySelector('.np-bar'));
   }
   sv.style.display = 'block';
-  document.getElementById('chapterTitle').textContent = currentChapter.icon + ' ' + currentChapter.name;
+  document.getElementById('chapterTitle').innerHTML = currentChapter.icon + ' ' + currentChapter.name + (currentChapter.nameJp ? ` <span style="font-size:0.7em;color:var(--text-muted)">${currentChapter.nameJp}</span>` : '');
   const sl = document.getElementById('songsList');
   if (!currentChapter.songs?.length) { sl.innerHTML = '<div class="empty"><div class="empty-icon">🎵</div><h3>No songs yet</h3><p>Episodes coming soon!</p></div>'; }
   else { sl.innerHTML = currentChapter.songs.map((s, i) => `<div class="song-card" id="sc-${i}"><button class="song-play" onclick="event.stopPropagation();playSong(${i})">▶</button><span class="song-title">${s.title}</span></div>`).join(''); }
@@ -142,7 +143,7 @@ function playSong(i) {
   player.src = s.audio;
   player.play().catch(() => {});
   document.getElementById('npTitle').textContent = s.title;
-  document.getElementById('npChapter').textContent = currentChapter.name;
+  document.getElementById('npChapter').textContent = currentChapter.name + (currentChapter.nameJp ? ' / ' + currentChapter.nameJp : '');
   const npImg = document.getElementById('npImg');
   if (s.image) { npImg.src = s.image; npImg.style.display = 'block'; } else { npImg.style.display = 'none'; }
   document.getElementById('playBtn').textContent = '⏸';

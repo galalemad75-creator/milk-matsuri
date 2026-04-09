@@ -223,13 +223,13 @@ function renderStats() {
 function renderChapters() {
   const el = document.getElementById('chList');
   if (!chapters.length) { el.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px">No chapters yet. Add one above! 👆</p>'; return; }
-  el.innerHTML = chapters.map(c => `<div class="ch-item"><div class="ch-head"><span class="icon">${c.icon}</span><div class="info"><div class="name">${c.name}</div><div class="count">${(c.songs||[]).length} song${(c.songs||[]).length!==1?'s':''}</div>${c.songs?.length?`<div class="song-list">${c.songs.map(s=>`<div class="song-row"><span class="title">${s.title}</span><div class="acts"><button class="btn-s ghost" onclick="new Audio('${s.audio}').play().catch(()=>toast('Cannot play','error'))">▶</button><button class="btn-s red" onclick="delSong(${c.id},${s.id})">🗑</button></div></div>`).join('')}</div>`:''}</div><div class="actions" style="display:flex;gap:6px"><button class="btn-s orange" onclick="editCh(${c.id})">✏️</button><button class="btn-s red" onclick="delCh(${c.id})">🗑️</button></div></div></div>`).join('');
+  el.innerHTML = chapters.map(c => `<div class="ch-item"><div class="ch-head"><span class="icon">${c.icon}</span><div class="info"><div class="name">${c.icon} ${c.name}</div>${c.nameJp?'<div style="font-size:0.8rem;color:var(--text-muted)">'+c.nameJp+'</div>':''}<div class="count">${(c.songs||[]).length} song${(c.songs||[]).length!==1?'s':''}</div>${c.songs?.length?`<div class="song-list">${c.songs.map(s=>`<div class="song-row"><span class="title">${s.title}</span><div class="acts"><button class="btn-s ghost" onclick="new Audio('${s.audio}').play().catch(()=>toast('Cannot play','error'))">▶</button><button class="btn-s red" onclick="delSong(${c.id},${s.id})">🗑</button></div></div>`).join('')}</div>`:''}</div><div class="actions" style="display:flex;gap:6px"><button class="btn-s orange" onclick="editCh(${c.id})">✏️</button><button class="btn-s red" onclick="delCh(${c.id})">🗑️</button></div></div></div>`).join('');
 }
 
 function populateSelect() {
   const sel = document.getElementById('songChapter');
   sel.innerHTML = '<option value="">Select chapter...</option>';
-  chapters.forEach(c => sel.innerHTML += `<option value="${c.id}">${c.icon} ${c.name}</option>`);
+  chapters.forEach(c => sel.innerHTML += `<option value="${c.id}">${c.icon} ${c.name} ${c.nameJp?'('+c.nameJp+')':''}</option>`);
 }
 
 async function addChapter(e) { e.preventDefault(); const n=document.getElementById('chName').value.trim(), i=document.getElementById('chIcon').value.trim(); if(!n||!i)return; await SYNC.addChapter(n,i); document.getElementById('chName').value=''; document.getElementById('chIcon').value=''; toast('Chapter added!','success'); chapters=DB.getChapters(); renderStats(); renderChapters(); populateSelect(); }

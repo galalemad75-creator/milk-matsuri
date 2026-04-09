@@ -4,193 +4,225 @@
       "id": 1,
       "name": "Festival Bon Odori Style",
       "icon": "🎎",
-      "songs": []
+      "songs": [],
+      "nameJp": "盆踊り風"
     },
     {
       "id": 2,
       "name": "Matsuri Festival Style Energetic Taiko Song",
       "icon": "🥁",
-      "songs": []
+      "songs": [],
+      "nameJp": "祭り風のエネルギッシュな太鼓ソング"
     },
     {
       "id": 3,
       "name": "Modern Hybrid Koto Pop Educational",
       "icon": "🎵",
-      "songs": []
+      "songs": [],
+      "nameJp": "モダンハイブリッドなコトポップ教育ソング"
     },
     {
       "id": 4,
       "name": "Enka-Style Emotional Growth & Care",
       "icon": "🎤",
-      "songs": []
+      "songs": [],
+      "nameJp": "演歌風の感情成長とケア"
     },
     {
       "id": 5,
       "name": "Ghibli-Inspired Nature & Gentle Learning",
       "icon": "🌿",
-      "songs": []
+      "songs": [],
+      "nameJp": "ジブリ風の自然と優しい学び"
     },
     {
       "id": 6,
-      "name": "Traditional Children Game Song",
+      "name": "Traditional Children's Game Song",
       "icon": "🎮",
-      "songs": []
+      "songs": [],
+      "nameJp": "伝統的な子供の遊び歌"
     },
     {
       "id": 7,
       "name": "Samurai Theme Honor & Strength",
       "icon": "⚔️",
-      "songs": []
+      "songs": [],
+      "nameJp": "侍のテーマ：名誉と強さ"
     },
     {
       "id": 8,
-      "name": "Japanese Min'yō Style Folk Learning Song",
+      "name": "Japanese Minyo Style Folk Learning Song",
       "icon": "🎶",
-      "songs": []
+      "songs": [],
+      "nameJp": "民謡風の学習ソング"
     },
     {
       "id": 9,
       "name": "Story Ending Theme Emotional Closure",
       "icon": "🌙",
-      "songs": []
+      "songs": [],
+      "nameJp": "物語のエンディングテーマ：感動的な締めくくり"
     },
     {
       "id": 10,
       "name": "Rainy Day Cozy Song",
       "icon": "🌧️",
-      "songs": []
+      "songs": [],
+      "nameJp": "雨の日の心地よい歌"
     },
     {
       "id": 11,
       "name": "City Pop Kids Modern Japanese Feel",
       "icon": "🏙️",
-      "songs": []
+      "songs": [],
+      "nameJp": "シティポップ風のキッズ向けモダンジャパニーズフィール"
     },
     {
       "id": 12,
       "name": "Retro Taisho Style",
       "icon": "👘",
-      "songs": []
+      "songs": [],
+      "nameJp": "レトロ大正スタイル"
     },
     {
       "id": 13,
       "name": "Game RPG Theme",
       "icon": "🎯",
-      "songs": []
+      "songs": [],
+      "nameJp": "ゲームRPGテーマ"
     },
     {
       "id": 14,
       "name": "Ninja Style",
       "icon": "🥷",
-      "songs": []
+      "songs": [],
+      "nameJp": "忍者スタイル"
     },
     {
       "id": 15,
       "name": "Train Bento Song",
       "icon": "🚂",
-      "songs": []
+      "songs": [],
+      "nameJp": "電車弁当ソング"
     },
     {
       "id": 16,
       "name": "Matsuri Hybrid Strong Hook",
       "icon": "🔥",
-      "songs": []
+      "songs": [],
+      "nameJp": "祭り風🔥強力なフック"
     },
     {
       "id": 17,
       "name": "Anime Opening Level Ghibli + Emotional Lift",
       "icon": "📺",
-      "songs": []
+      "songs": [],
+      "nameJp": "アニメオープニングレベル ジブリ風＋感動的な高揚感"
     },
     {
       "id": 18,
       "name": "Kids Dance Viral TikTok Style Japan",
       "icon": "💃",
-      "songs": []
+      "songs": [],
+      "nameJp": "キッズダンス人気TikTokスタイルジャパン"
     },
     {
       "id": 19,
       "name": "Taiko + Samurai Epic Power Identity",
       "icon": "🪘",
-      "songs": []
+      "songs": [],
+      "nameJp": "太鼓＋侍の壮大な力アイデンティティ"
     },
     {
       "id": 20,
       "name": "Ultimate Viral Ending Emotional + Repeatable",
       "icon": "🌟",
-      "songs": []
+      "songs": [],
+      "nameJp": "究極のバイラルエンディング（感動的＋繰り返し再生可能）"
     },
     {
       "id": 21,
       "name": "Bon Odori Milk Festival",
       "icon": "🥛",
-      "songs": []
+      "songs": [],
+      "nameJp": "盆踊りミルクフェスティバル"
     },
     {
       "id": 22,
       "name": "Summer Yagura Light Festival",
       "icon": "🏮",
-      "songs": []
+      "songs": [],
+      "nameJp": "夏の櫓祭り"
     },
     {
       "id": 23,
       "name": "Milk Drum Dance Bon Odori",
       "icon": "🥁",
-      "songs": []
+      "songs": [],
+      "nameJp": "ミルクドラムダンス盆踊り"
     },
     {
       "id": 24,
       "name": "Children Circle Dance Song",
       "icon": "👧",
-      "songs": []
+      "songs": [],
+      "nameJp": "子供たちの輪舞ソング"
     },
     {
       "id": 25,
       "name": "Night Festival Story Song",
       "icon": "🌃",
-      "songs": []
+      "songs": [],
+      "nameJp": "夜祭りストーリーソング"
     },
     {
       "id": 26,
       "name": "Taisho Bon Mix",
       "icon": "🎪",
-      "songs": []
+      "songs": [],
+      "nameJp": "大正盆ミックス"
     },
     {
       "id": 27,
       "name": "Kids Festival Call & Response",
       "icon": "📢",
-      "songs": []
+      "songs": [],
+      "nameJp": "キッズフェスティバル コール＆レスポンス"
     },
     {
       "id": 28,
       "name": "Rainy Festival Bon Odori",
       "icon": "☔",
-      "songs": []
+      "songs": [],
+      "nameJp": "雨祭り盆踊り"
     },
     {
       "id": 29,
       "name": "Anime Bon Odori Version",
       "icon": "🎌",
-      "songs": []
+      "songs": [],
+      "nameJp": "アニメ盆踊りバージョン"
     },
     {
       "id": 30,
       "name": "Extended Bon Odori Full Festival Loop",
       "icon": "🔄",
-      "songs": []
+      "songs": [],
+      "nameJp": "拡張盆踊り（フェスティバルフルループ）"
     },
     {
       "id": 31,
       "name": "Festival Story Long Version",
       "icon": "📖",
-      "songs": []
+      "songs": [],
+      "nameJp": "フェスティバルストーリーロングバージョン"
     },
     {
       "id": 32,
       "name": "Super Viral Bon Odori Loop Dance Focus",
       "icon": "💫",
-      "songs": []
+      "songs": [],
+      "nameJp": "スーパーバイラル盆踊りループ"
     }
   ],
   "nextId": {
