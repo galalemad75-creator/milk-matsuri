@@ -190,8 +190,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }));
 });
 
-function doLogin(e) {
+async function doLogin(e) {
   e.preventDefault();
+    await DB.init();
   const email = document.getElementById('loginEmail').value.trim(), pass = document.getElementById('loginPass').value.trim();
   const errEl = document.getElementById('loginError'), btn = document.getElementById('loginBtn');
   btn.disabled = true; btn.textContent = 'Checking...'; errEl.textContent = '';
