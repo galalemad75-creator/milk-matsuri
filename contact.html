@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — Milk Matsuri</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥛</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="header" id="header"><div class="container nav-inner"><a href="index.html" class="logo"><span class="logo-icon">🥛</span><span class="logo-text">Milk <span class="accent">Matsuri</span></span></a><div class="nav-actions"><a href="index.html" class="btn btn-sm" style="background:var(--accent);color:#fff">← Home</a></div></div></header>
+<section style="padding:calc(var(--header-height)+40px) 20px 80px;max-width:700px;margin:0 auto">
+<h1 style="font-family:Poppins,sans-serif;font-size:2rem;font-weight:800;margin-bottom:8px">📬 Contact Us</h1>
+<p style="color:var(--text-secondary);margin-bottom:32px">Have questions, suggestions, or just want to say hi? We'd love to hear from you!</p>
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px">
+<form onsubmit="handleSubmit(event)">
+<div class="form-group" style="margin-bottom:16px"><label style="display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem">Name *</label><input type="text" required placeholder="Your name" style="width:100%;padding:12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit"></div>
+<div class="form-group" style="margin-bottom:16px"><label style="display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem">Email *</label><input type="email" required placeholder="your@email.com" style="width:100%;padding:12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit"></div>
+<div class="form-group" style="margin-bottom:16px"><label style="display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem">Subject *</label><select required style="width:100%;padding:12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit"><option value="">Select...</option><option>General Question</option><option>Bug Report</option><option>Feature Request</option><option>Business Inquiry</option><option>Other</option></select></div>
+<div class="form-group" style="margin-bottom:16px"><label style="display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem">Message *</label><textarea required rows="5" placeholder="Your message..." style="width:100%;padding:12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit;resize:vertical"></textarea></div>
+<button type="submit" class="btn btn-primary" style="width:100%">📤 Send Message</button>
+</form>
+<p id="formMsg" style="text-align:center;margin-top:16px;font-weight:700;min-height:24px"></p>
+</div>
+<div style="margin-top:32px;text-align:center;color:var(--text-secondary)">
+<p>📧 <a href="mailto:galalemad75@gmail.com">galalemad75@gmail.com</a></p>
+<p style="margin-top:8px;font-size:0.85rem">We typically respond within 24-48 hours.</p>
+</div>
+</section>
+<footer class="footer"><div class="container"><div class="footer-bottom"><p>&copy; 2026 Milk Matsuri. All rights reserved. 🥛🎌</p></div></div></footer>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('mm_theme'),d=s?s==='dark':window.matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.setAttribute('data-theme',d?'dark':'light')});
+function handleSubmit(e){e.preventDefault();document.getElementById('formMsg').innerHTML='<span style="color:#27ae60">✅ Message sent! We\'ll get back to you soon.</span>';e.target.reset();setTimeout(()=>document.getElementById('formMsg').textContent='',5000)}
+</script>
+</body></html>

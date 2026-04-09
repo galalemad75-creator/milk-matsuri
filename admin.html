@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Milk Matsuri</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥛</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.admin-wrap{max-width:900px;margin:0 auto;padding:calc(var(--header-height,70px)+24px) 20px 60px}
+.login-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;max-width:400px;margin:80px auto;text-align:center;box-shadow:var(--shadow-lg)}
+.login-card h2{font-size:1.4rem;margin-bottom:8px}
+.login-card p{color:var(--text-secondary);margin-bottom:24px;font-size:0.9rem}
+.login-card .form-group{margin-bottom:16px;text-align:left}
+.login-card .form-group label{display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem}
+.login-card .form-group input{width:100%;padding:12px 16px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit;font-size:0.95rem}
+.login-card .form-group input:focus{outline:none;border-color:var(--accent)}
+.login-card .login-btn{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-full);font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;margin-top:8px}
+.login-card .login-btn:hover{background:var(--accent-hover)}
+.login-card .login-btn:disabled{opacity:0.6}
+.login-error{color:#e74c3c;font-weight:600;font-size:0.85rem;margin-top:12px;min-height:20px}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.dash-header h1{font-size:1.6rem;font-weight:800}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px;text-align:center}
+.stat-box .num{font-size:1.6rem;font-weight:800;color:var(--accent);display:block}
+.stat-box .lbl{font-size:0.75rem;color:var(--text-muted);font-weight:600}
+.tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:2px solid var(--border);overflow-x:auto}
+.tab{padding:10px 20px;font-weight:700;font-size:0.9rem;color:var(--text-secondary);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:0.2s;white-space:nowrap}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.panel{display:none}.panel.active{display:block}
+.form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:20px}
+.form-card h3{margin-bottom:16px;font-size:1rem}
+.form-row{display:flex;gap:12px;flex-wrap:wrap}
+.form-row .form-group{flex:1;min-width:180px}
+.form-group label{display:block;font-weight:700;margin-bottom:6px;font-size:0.85rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:inherit;font-size:0.9rem}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent)}
+.file-wrap{position:relative}.file-wrap input[type=file]{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer}
+.file-label{display:block;padding:12px;background:var(--bg-primary);border:2px dashed var(--border);border-radius:var(--radius-sm);text-align:center;color:var(--text-muted);font-weight:600;cursor:pointer;font-size:0.85rem}
+.file-label:hover{border-color:var(--accent);color:var(--accent)}
+.upload-bar{display:none;margin-top:10px;padding:10px;background:var(--bg-secondary);border-radius:var(--radius-sm);font-size:0.85rem}
+.upload-bar .bar{height:6px;background:var(--border);border-radius:3px;margin-top:6px;overflow:hidden}
+.upload-bar .fill{height:100%;background:var(--accent);border-radius:3px;width:0%;transition:0.3s}
+.ch-list{display:flex;flex-direction:column;gap:10px}
+.ch-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px}
+.ch-head{display:flex;align-items:center;gap:12px}
+.ch-head .icon{font-size:1.6rem}.ch-head .info{flex:1}.ch-head .name{font-weight:700}.ch-head .count{font-size:0.8rem;color:var(--text-muted)}
+.song-list{margin-top:10px;padding-left:16px}
+.song-row{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px}
+.song-row .title{flex:1;font-weight:600;font-size:0.85rem}.song-row .acts{display:flex;gap:4px}
+.btn-s{padding:6px 14px;font-size:0.78rem;border-radius:var(--radius-full);font-weight:700;display:inline-flex;align-items:center;gap:4px;border:none;cursor:pointer;transition:0.2s;font-family:inherit}
+.btn-s.red{background:#e74c3c;color:#fff}.btn-s.green{background:#27ae60;color:#fff}.btn-s.orange{background:#f39c12;color:#fff}
+.btn-s.ghost{background:var(--bg-secondary);color:var(--text-secondary);border:1px solid var(--border)}
+@media(max-width:600px){.stats-row{grid-template-columns:1fr 1fr}.form-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><span class="logo-icon">🥛</span><span class="logo-text">Milk Matsuri</span></a>
+    <div class="nav-actions">
+      <button class="btn-s ghost" onclick="if(isLoggedIn){DB.logout();location.reload()}else{location.href='index.html'}">
+        <span id="navAction">🏠 Home</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- LOGIN -->
+<div id="loginSection">
+  <div class="login-card">
+    <div style="font-size:2.5rem;margin-bottom:12px">🔐</div>
+    <h2>Admin Login</h2>
+    <p>Sign in to manage chapters and upload songs</p>
+    <form onsubmit="doLogin(event)">
+      <div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div>
+      <div class="form-group"><label>Password</label><input type="password" id="loginPass" required placeholder="Enter password"></div>
+      <button type="submit" class="login-btn" id="loginBtn">🔓 Sign In</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+    <a href="forgot-password.html" style="display:block;margin-top:12px;color:var(--text-muted);font-size:0.85rem">Forgot password?</a>
+    <a href="index.html" style="display:block;margin-top:12px;color:var(--text-muted);font-size:0.85rem">← Back to Home</a>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashSection" style="display:none">
+<div class="admin-wrap">
+  <div class="dash-header">
+    <h1>📊 Dashboard</h1>
+    <button class="btn-s ghost" onclick="DB.logout();location.reload()">🚪 Logout</button>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box"><span class="num" id="sChapters">0</span><span class="lbl">Chapters</span></div>
+    <div class="stat-box"><span class="num" id="sSongs">0</span><span class="lbl">Songs</span></div>
+    <div class="stat-box"><span class="num" id="sAudio">0</span><span class="lbl">Audio Files</span></div>
+    <div class="stat-box"><span class="num" id="sAds">0</span><span class="lbl">Ad Boxes</span></div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="chapters">📚 Chapters</button>
+    <button class="tab" data-tab="upload">🎵 Upload</button>
+    <button class="tab" data-tab="ads">📢 Ads</button>
+    <button class="tab" data-tab="settings">⚙️ Settings</button>
+  </div>
+
+  <!-- Chapters Panel -->
+  <div class="panel active" id="p-chapters">
+    <div class="form-card">
+      <h3>➕ Add Chapter</h3>
+      <form onsubmit="addChapter(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Name *</label><input type="text" id="chName" required placeholder="Chapter name"></div>
+          <div class="form-group"><label>Icon *</label><input type="text" id="chIcon" required placeholder="🎌" maxlength="4"></div>
+        </div>
+        <button type="submit" class="btn-s green" style="margin-top:10px">➕ Add</button>
+      </form>
+    </div>
+    <div class="ch-list" id="chList"><p style="text-align:center;color:var(--text-muted);padding:30px">Loading...</p></div>
+  </div>
+
+  <!-- Upload Panel -->
+  <div class="panel" id="p-upload">
+    <div class="form-card">
+      <h3>🎵 Upload Song</h3>
+      <form onsubmit="uploadSong(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Chapter *</label><select id="songChapter" required><option value="">Select...</option></select></div>
+          <div class="form-group"><label>Title *</label><input type="text" id="songTitle" required placeholder="Song title"></div>
+        </div>
+        <div class="form-row" style="margin-top:12px">
+          <div class="form-group"><label>🎵 Audio File *</label><div class="file-wrap"><input type="file" id="songFile" accept="audio/*" required onchange="document.getElementById('fileLbl').textContent='✅ '+this.files[0].name"><div class="file-label" id="fileLbl">📎 Click to select audio file</div></div></div>
+          <div class="form-group"><label>🖼️ Cover Image</label><div class="file-wrap"><input type="file" id="songImage" accept="image/*" onchange="handleImg(this)"><div class="file-label" id="imgLbl">🖼️ Click to select cover image</div></div><div id="imgPreview" style="display:none;margin-top:8px"><img id="imgThumb" style="max-width:100px;border-radius:8px"></div></div>
+        </div>
+        <div class="upload-bar" id="upBar"><span id="upStatus">Uploading...</span><div class="bar"><div class="fill" id="upFill"></div></div></div>
+        <button type="submit" class="btn-s green" style="margin-top:12px" id="upBtn">📤 Upload</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Ads Panel -->
+  <div class="panel" id="p-ads">
+    <div class="form-card">
+      <h3>📢 Ad Code Boxes</h3>
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:16px">Paste your ad codes (AdSense, Adsterra, etc.) below. Toggle them on/off as needed.</p>
+      <div id="adsList">Loading...</div>
+    </div>
+    <div class="form-card">
+      <h3>➕ Add Custom Ad Box</h3>
+      <form onsubmit="addAdBox(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Box Name *</label><input type="text" id="adName" required placeholder="e.g. Sidebar Ad"></div>
+          <div class="form-group"><label>Position *</label><select id="adPosition" required><option value="after_hero">After Hero</option><option value="after_features">After Features</option><option value="mid_episodes">Mid Episodes</option><option value="before_footer">Before Footer</option></select></div>
+        </div>
+        <button type="submit" class="btn-s green" style="margin-top:10px">➕ Add Box</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Settings Panel -->
+  <div class="panel" id="p-settings">
+    <div class="form-card">
+      <h3>🔄 Reset All Data</h3>
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:12px">Delete everything and go back to defaults.</p>
+      <button class="btn-s red" onclick="resetData()">⚠️ Reset</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="config.js"></script>
+<script>
+let chapters = [], isLoggedIn = false;
+const ADMIN_EMAIL = 'galalemad75@gmail.com';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const saved = localStorage.getItem('mm_theme');
+  const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  if (localStorage.getItem('mm_admin')) { isLoggedIn = true; showDashboard(); }
+  document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('p-' + btn.dataset.tab).classList.add('active');
+  }));
+});
+
+function doLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim(), pass = document.getElementById('loginPass').value.trim();
+  const errEl = document.getElementById('loginError'), btn = document.getElementById('loginBtn');
+  btn.disabled = true; btn.textContent = 'Checking...'; errEl.textContent = '';
+  setTimeout(() => {
+    if (DB.login(email, pass)) { DB.setSession(email); isLoggedIn = true; showDashboard(); }
+    else { errEl.textContent = '❌ Invalid email or password'; btn.disabled = false; btn.textContent = '🔓 Sign In'; }
+  }, 300);
+}
+
+async function showDashboard() {
+  document.getElementById('loginSection').style.display = 'none';
+  document.getElementById('dashSection').style.display = 'block';
+  toast('⏳ Loading & syncing...', 'info');
+  try { await DB.init(); } catch(e) { console.warn(e); }
+  chapters = DB.getChapters();
+  renderStats(); renderChapters(); populateSelect(); renderAds();
+  toast('✅ Data loaded & synced!', 'success');
+}
+
+function renderStats() {
+  const songs = chapters.reduce((s, c) => s + (c.songs?.length || 0), 0);
+  document.getElementById('sChapters').textContent = chapters.length;
+  document.getElementById('sSongs').textContent = songs;
+  document.getElementById('sAudio').textContent = songs;
+  document.getElementById('sAds').textContent = DB.getAds().length;
+}
+
+function renderChapters() {
+  const el = document.getElementById('chList');
+  if (!chapters.length) { el.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:30px">No chapters yet. Add one above! 👆</p>'; return; }
+  el.innerHTML = chapters.map(c => `<div class="ch-item"><div class="ch-head"><span class="icon">${c.icon}</span><div class="info"><div class="name">${c.name}</div><div class="count">${(c.songs||[]).length} song${(c.songs||[]).length!==1?'s':''}</div>${c.songs?.length?`<div class="song-list">${c.songs.map(s=>`<div class="song-row"><span class="title">${s.title}</span><div class="acts"><button class="btn-s ghost" onclick="new Audio('${s.audio}').play().catch(()=>toast('Cannot play','error'))">▶</button><button class="btn-s red" onclick="delSong(${c.id},${s.id})">🗑</button></div></div>`).join('')}</div>`:''}</div><div class="actions" style="display:flex;gap:6px"><button class="btn-s orange" onclick="editCh(${c.id})">✏️</button><button class="btn-s red" onclick="delCh(${c.id})">🗑️</button></div></div></div>`).join('');
+}
+
+function populateSelect() {
+  const sel = document.getElementById('songChapter');
+  sel.innerHTML = '<option value="">Select chapter...</option>';
+  chapters.forEach(c => sel.innerHTML += `<option value="${c.id}">${c.icon} ${c.name}</option>`);
+}
+
+async function addChapter(e) { e.preventDefault(); const n=document.getElementById('chName').value.trim(), i=document.getElementById('chIcon').value.trim(); if(!n||!i)return; await SYNC.addChapter(n,i); document.getElementById('chName').value=''; document.getElementById('chIcon').value=''; toast('Chapter added!','success'); chapters=DB.getChapters(); renderStats(); renderChapters(); populateSelect(); }
+async function editCh(id) { const ch=chapters.find(c=>c.id===id); if(!ch)return; const n=prompt('Name:',ch.name); if(!n)return; const i=prompt('Icon:',ch.icon); if(!i)return; await SYNC.updateChapter(id,{name:n,icon:i}); toast('Updated!','success'); chapters=DB.getChapters(); renderStats(); renderChapters(); populateSelect(); }
+async function delCh(id) { if(!confirm('Delete this chapter and all its songs?'))return; await SYNC.removeChapter(id); toast('Deleted!','info'); chapters=DB.getChapters(); renderStats(); renderChapters(); populateSelect(); }
+
+async function uploadSong(e) {
+  e.preventDefault(); const chId=parseInt(document.getElementById('songChapter').value), title=document.getElementById('songTitle').value.trim(), file=document.getElementById('songFile').files[0], imgFile=document.getElementById('songImage').files[0];
+  if(!chId||!title||!file){toast('Fill all fields!','error');return;}
+  const btn=document.getElementById('upBtn'), bar=document.getElementById('upBar'), fill=document.getElementById('upFill'), status=document.getElementById('upStatus');
+  btn.disabled=true; bar.style.display='block'; fill.style.width='0%'; status.textContent='Uploading audio...';
+  try {
+    const result=await SYNC.uploadAudio(file,p=>{fill.style.width=p+'%';status.textContent='Uploading audio... '+p+'%'});
+    let imageUrl=''; if(imgFile){fill.style.width='0%';status.textContent='Uploading image...';const ir=await SYNC.uploadAudio(imgFile,p=>{fill.style.width=p+'%';status.textContent='Uploading image... '+p+'%'});imageUrl=ir.url;}
+    fill.style.width='100%'; status.textContent='Saving...';
+    await SYNC.addSong(chId,title,result.url,result.publicId,imageUrl);
+    status.textContent='✅ Done!'; toast('Song uploaded!','success');
+    document.getElementById('songTitle').value='';document.getElementById('songFile').value='';document.getElementById('songImage').value='';
+    document.getElementById('fileLbl').textContent='📎 Click to select audio file';document.getElementById('imgLbl').textContent='🖼️ Click to select cover image';document.getElementById('imgPreview').style.display='none';
+    chapters=DB.getChapters(); renderStats(); renderChapters(); populateSelect();
+    setTimeout(()=>{bar.style.display='none'},2000);
+  } catch(err) { status.textContent='❌ '+err.message; toast('Upload failed: '+err.message,'error'); }
+  btn.disabled=false;
+}
+
+function handleImg(input) { if(input.files?.[0]){const r=new FileReader();r.onload=e=>{document.getElementById('imgThumb').src=e.target.result;document.getElementById('imgPreview').style.display='block';document.getElementById('imgLbl').textContent='✅ '+input.files[0].name};r.readAsDataURL(input.files[0])}}
+async function delSong(c,s) { if(!confirm('Delete this song?'))return; await SYNC.removeSong(c,s); toast('Deleted!','info'); chapters=DB.getChapters(); renderStats(); renderChapters(); }
+
+// Ads
+let ads=[];
+function renderAds() { ads=DB.getAds(); const el=document.getElementById('adsList'); if(!ads.length){el.innerHTML='<p style="text-align:center;color:var(--text-muted);padding:20px">No ad boxes. Add one below! 👇</p>';return;}
+  const pos={after_hero:'📍 After Hero',after_features:'📍 After Features',mid_episodes:'📍 Mid Episodes',before_footer:'📍 Before Footer'};
+  el.innerHTML=ads.map(ad=>`<div class="form-card" style="border-left:4px solid ${ad.enabled?'#27ae60':'#e74c3c'};margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px"><div><strong>${ad.name}</strong><span style="font-size:0.8rem;color:var(--text-muted);margin-left:8px">${pos[ad.position]||ad.position}</span></div><div style="display:flex;gap:6px;align-items:center"><label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:700;font-size:0.85rem"><input type="checkbox" ${ad.enabled?'checked':''} onchange="toggleAd(${ad.id},this.checked)" style="width:18px;height:18px;cursor:pointer">${ad.enabled?'🟢 ON':'🔴 OFF'}</label><button class="btn-s red" onclick="deleteAdBox(${ad.id})">🗑</button></div></div><div class="form-group"><label style="font-size:0.8rem">Ad Code</label><textarea id="adCode-${ad.id}" style="width:100%;min-height:80px;padding:10px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:monospace;font-size:0.8rem;resize:vertical" placeholder="Paste ad code here">${ad.code||''}</textarea></div><button class="btn-s green" style="margin-top:8px" onclick="saveAd(${ad.id})">💾 Save</button></div>`).join(''); }
+async function toggleAd(id,c) { await SYNC.updateAd(id,{enabled:c}); toast(c?'🟢 Ad enabled!':'🔴 Ad disabled!','success'); renderAds(); }
+async function saveAd(id) { const code=document.getElementById('adCode-'+id).value; await SYNC.updateAd(id,{code}); toast('💾 Saved!','success'); renderAds(); }
+async function addAdBox(e) { e.preventDefault(); const n=document.getElementById('adName').value.trim(),p=document.getElementById('adPosition').value; if(!n)return; await SYNC.addAd(n,p,''); document.getElementById('adName').value=''; toast('📢 Ad box added!','success'); renderAds(); }
+async function deleteAdBox(id) { if(!confirm('Delete?'))return; await SYNC.removeAd(id); toast('🗑 Deleted!','info'); renderAds(); }
+
+async function resetData() { if(!confirm('⚠️ Delete ALL data?'))return; if(!confirm('Last chance!'))return; DB._cache=JSON.parse(JSON.stringify(DEFAULT_DATA)); await DB.save(); toast('Reset done!','info'); setTimeout(()=>location.reload(),1500); }
+
+function toast(msg,type='info') { const t=document.getElementById('toast'); t.textContent=msg;t.className='toast '+type; setTimeout(()=>t.classList.add('show'),10); setTimeout(()=>t.classList.remove('show'),3000); }
+</script>
+</body>
+</html>

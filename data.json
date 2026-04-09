@@ -1,0 +1,227 @@
+{
+  "chapters": [
+    {
+      "id": 1,
+      "name": "Festival Bon Odori Style",
+      "icon": "🎎",
+      "songs": []
+    },
+    {
+      "id": 2,
+      "name": "Matsuri Festival Style Energetic Taiko Song",
+      "icon": "🥁",
+      "songs": []
+    },
+    {
+      "id": 3,
+      "name": "Modern Hybrid Koto Pop Educational",
+      "icon": "🎵",
+      "songs": []
+    },
+    {
+      "id": 4,
+      "name": "Enka-Style Emotional Growth & Care",
+      "icon": "🎤",
+      "songs": []
+    },
+    {
+      "id": 5,
+      "name": "Ghibli-Inspired Nature & Gentle Learning",
+      "icon": "🌿",
+      "songs": []
+    },
+    {
+      "id": 6,
+      "name": "Traditional Children Game Song",
+      "icon": "🎮",
+      "songs": []
+    },
+    {
+      "id": 7,
+      "name": "Samurai Theme Honor & Strength",
+      "icon": "⚔️",
+      "songs": []
+    },
+    {
+      "id": 8,
+      "name": "Japanese Min'yō Style Folk Learning Song",
+      "icon": "🎶",
+      "songs": []
+    },
+    {
+      "id": 9,
+      "name": "Story Ending Theme Emotional Closure",
+      "icon": "🌙",
+      "songs": []
+    },
+    {
+      "id": 10,
+      "name": "Rainy Day Cozy Song",
+      "icon": "🌧️",
+      "songs": []
+    },
+    {
+      "id": 11,
+      "name": "City Pop Kids Modern Japanese Feel",
+      "icon": "🏙️",
+      "songs": []
+    },
+    {
+      "id": 12,
+      "name": "Retro Taisho Style",
+      "icon": "👘",
+      "songs": []
+    },
+    {
+      "id": 13,
+      "name": "Game RPG Theme",
+      "icon": "🎯",
+      "songs": []
+    },
+    {
+      "id": 14,
+      "name": "Ninja Style",
+      "icon": "🥷",
+      "songs": []
+    },
+    {
+      "id": 15,
+      "name": "Train Bento Song",
+      "icon": "🚂",
+      "songs": []
+    },
+    {
+      "id": 16,
+      "name": "Matsuri Hybrid Strong Hook",
+      "icon": "🔥",
+      "songs": []
+    },
+    {
+      "id": 17,
+      "name": "Anime Opening Level Ghibli + Emotional Lift",
+      "icon": "📺",
+      "songs": []
+    },
+    {
+      "id": 18,
+      "name": "Kids Dance Viral TikTok Style Japan",
+      "icon": "💃",
+      "songs": []
+    },
+    {
+      "id": 19,
+      "name": "Taiko + Samurai Epic Power Identity",
+      "icon": "🪘",
+      "songs": []
+    },
+    {
+      "id": 20,
+      "name": "Ultimate Viral Ending Emotional + Repeatable",
+      "icon": "🌟",
+      "songs": []
+    },
+    {
+      "id": 21,
+      "name": "Bon Odori Milk Festival",
+      "icon": "🥛",
+      "songs": []
+    },
+    {
+      "id": 22,
+      "name": "Summer Yagura Light Festival",
+      "icon": "🏮",
+      "songs": []
+    },
+    {
+      "id": 23,
+      "name": "Milk Drum Dance Bon Odori",
+      "icon": "🥁",
+      "songs": []
+    },
+    {
+      "id": 24,
+      "name": "Children Circle Dance Song",
+      "icon": "👧",
+      "songs": []
+    },
+    {
+      "id": 25,
+      "name": "Night Festival Story Song",
+      "icon": "🌃",
+      "songs": []
+    },
+    {
+      "id": 26,
+      "name": "Taisho Bon Mix",
+      "icon": "🎪",
+      "songs": []
+    },
+    {
+      "id": 27,
+      "name": "Kids Festival Call & Response",
+      "icon": "📢",
+      "songs": []
+    },
+    {
+      "id": 28,
+      "name": "Rainy Festival Bon Odori",
+      "icon": "☔",
+      "songs": []
+    },
+    {
+      "id": 29,
+      "name": "Anime Bon Odori Version",
+      "icon": "🎌",
+      "songs": []
+    },
+    {
+      "id": 30,
+      "name": "Extended Bon Odori Full Festival Loop",
+      "icon": "🔄",
+      "songs": []
+    },
+    {
+      "id": 31,
+      "name": "Festival Story Long Version",
+      "icon": "📖",
+      "songs": []
+    },
+    {
+      "id": 32,
+      "name": "Super Viral Bon Odori Loop Dance Focus",
+      "icon": "💫",
+      "songs": []
+    }
+  ],
+  "nextId": {
+    "chapter": 33,
+    "song": 1
+  },
+  "ads": [
+    {
+      "id": 1,
+      "name": "Ad Box 1 - Header Banner",
+      "position": "after_hero",
+      "code": "",
+      "enabled": false
+    },
+    {
+      "id": 2,
+      "name": "Ad Box 2 - Mid Content",
+      "position": "after_features",
+      "code": "",
+      "enabled": false
+    },
+    {
+      "id": 3,
+      "name": "Ad Box 3 - Footer Banner",
+      "position": "before_footer",
+      "code": "",
+      "enabled": false
+    }
+  ],
+  "admin": {
+    "email": "galalemad75@gmail.com",
+    "password": "MilkMatsuri2026!"
+  }
+}
